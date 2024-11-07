@@ -17,6 +17,9 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+const int WIDTH = 100;
+const int HEIGHT = 100;
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -144,10 +147,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_PAINT:
         {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: Add any drawing code that uses hdc here...
-            EndPaint(hWnd, &ps);
+PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        HBITMAP bitmap = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
+        HDC memDC = CreateCompatibleDC(hdc);
+        SelectObject(memDC, bitmap);
+
+        //Fill the bitmap with red color
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
+
+                if (((x + y) > WIDTH-1) && (x>y))
+                    SetPixel(memDC, x, y, RGB(255, 0, 0));// this means RED!
+                else if (((x + y) > WIDTH - 1) && (x < y))
+                    SetPixel(memDC, x, y, RGB(255, 255, 255));// this means WHITE!
+                else if (((x + y) < WIDTH - 1) && (x < y))
+                    SetPixel(memDC, x, y, RGB(0, 0, 0));// this means BLACK!
+                else
+                    SetPixel(memDC, x, y, RGB(0, 255, 0));// this means OTHER!
+            }
+        }
+        
+        BitBlt(hdc, 50, 50, WIDTH, HEIGHT, memDC, 0, 0, SRCCOPY);
+        DeleteDC(memDC);
+        EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:

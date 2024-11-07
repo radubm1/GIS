@@ -136,9 +136,6 @@
     <ClInclude Include="WindowsProject1.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\GIS\Line.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\GIS\Point.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\GIS\Poly.cpp" />
     <ClCompile Include="WindowsProject1.cpp" />
   </ItemGroup>
   <ItemGroup>
