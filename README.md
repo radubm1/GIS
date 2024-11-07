@@ -223,7 +223,7 @@ C:/Users/radub/source/repos/Solution1/GIS/WindowsProject1/Poly.cpp File Referenc
 #include "Poly.h"
 ```
 Include dependency graph for Poly.cpp:
-IMAGE
+![Poly](2.png)
 
 C:/Users/radub/source/repos/Solution1/GIS/WindowsProject1/Poly.h File Reference
 ```
