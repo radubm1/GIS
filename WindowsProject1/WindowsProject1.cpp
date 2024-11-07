@@ -3,6 +3,8 @@
 
 #include "framework.h"
 #include "WindowsProject1.h"
+#include "point.h"
+#include "line.h"
 
 #define MAX_LOADSTRING 100
 
@@ -152,22 +154,17 @@ PAINTSTRUCT ps;
         HBITMAP bitmap = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
         HDC memDC = CreateCompatibleDC(hdc);
         SelectObject(memDC, bitmap);
+        Point p1 = Point(1, 5);
+        Point p2 = Point(20, 30);
+        Line ln = Line(p1, p2);
 
-        //Fill the bitmap with red color
-        for (int y = 0; y < HEIGHT; y++) {
-            for (int x = 0; x < WIDTH; x++) {
+        //Fill the bitmap with black color
+        for (int y = 0; y < HEIGHT; y++)
+            for (int x = 0; x < WIDTH; x++)
+                SetPixel(memDC, x, y, RGB(0, 0, 0));// this means BLACK!
 
-                if (((x + y) > WIDTH-1) && (x>y))
-                    SetPixel(memDC, x, y, RGB(255, 0, 0));// this means RED!
-                else if (((x + y) > WIDTH - 1) && (x < y))
-                    SetPixel(memDC, x, y, RGB(255, 255, 255));// this means WHITE!
-                else if (((x + y) < WIDTH - 1) && (x < y))
-                    SetPixel(memDC, x, y, RGB(0, 0, 0));// this means BLACK!
-                else
-                    SetPixel(memDC, x, y, RGB(0, 255, 0));// this means OTHER!
-            }
-        }
-        
+        ln.Draw(memDC);
+    
         BitBlt(hdc, 50, 50, WIDTH, HEIGHT, memDC, 0, 0, SRCCOPY);
         DeleteDC(memDC);
         EndPaint(hWnd, &ps);

@@ -1,18 +1,16 @@
 #ifndef _LINE_H
 #define _LINE_H
-
-
+#include "framework.h"
 #include "Point.h"
 
 class Line {
   private:
-    Point Point_1;
-
-    Point Point_2;
-
+    Point p1;
+    Point p2;
 
   public:
-    void Draw();
+      Line(Point _p1, Point _p2);
+      void Draw(HDC memDC);
 
 };
 #endif
