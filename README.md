@@ -38,12 +38,8 @@ C:/Users/radub/source/repos/Solution1/GIS/WindowsProject1/WindowsProject1.h  	pa
 #include <Line.h>
 ```
 Public Member Functions
-0)	
 ```
 Line (Point _p1, Point _p2)
-```
-1)
-```
 void Draw (HDC memDC)
 ```
 Constructor & Destructor Documentation
@@ -63,35 +59,24 @@ The documentation for this class was generated from the following files:
 #include <Point.h>
 ```
 Public Member Functions
-0.	
 ```
 Point (int _x, int _y)
-```
-1.
-```
+
 Point ()
-```
-2.
-```
+
 int getX ()
-```
-3.
-```
+
 int getY ()
 ```
 
 Constructor & Destructor Documentation
 ```
 Point::Point (int  _x, int  _y)
-```
-```
 Point::Point ()
 ```
 Member Function Documentation
 ```
 int Point::getX ()
-```
-```
 int Point::getY ()
 ```
 The documentation for this class was generated from the following files:
@@ -102,7 +87,6 @@ The documentation for this class was generated from the following files:
 #include <Poly.h>
 ```
 Public Member Functions
-0.	
 ```
 void Fill ()
 ```
@@ -131,15 +115,12 @@ This graph shows which files directly or indirectly include this file:
 IMAGE
 
 Macros
-0.
 ```
 #define WIN32_LEAN_AND_MEAN
 ```
 Macro Definition Documentation
 ```
 #define WIN32_LEAN_AND_MEAN
-```
-```
 framework.h
 ```
 Go to the documentation of this file.
@@ -165,8 +146,7 @@ C:/Users/radub/source/repos/Solution1/GIS/WindowsProject1/Line.cpp File Referenc
 #include "Line.h"
 ```
 Include dependency graph for Line.cpp:
-IMAGE
-
+![Line](1.png)
 C:/Users/radub/source/repos/Solution1/GIS/WindowsProject1/Line.h File Reference
 ```
 #include "framework.h"
