@@ -5,6 +5,8 @@
 #include "WindowsProject1.h"
 #include "point.h"
 #include "line.h"
+#include "poly.h"
+#include <vector>
 
 #define MAX_LOADSTRING 100
 
@@ -155,15 +157,24 @@ PAINTSTRUCT ps;
         HDC memDC = CreateCompatibleDC(hdc);
         SelectObject(memDC, bitmap);
         Point p1 = Point(1, 5);
-        Point p2 = Point(20, 30);
-        Line ln = Line(p1, p2);
+        Point p2 = Point(20, 10);
+        Point p3 = Point(50, 70);
+        Line ln1 = Line(p1, p2);
+        Line ln2 = Line(p2, p3);
+        Line ln3 = Line(p1, p3);
+
+        std::vector<Line> lines;
+        lines.push_back(ln1); lines.push_back(ln2); lines.push_back(ln3);
+
+        Poly ply = Poly(lines);
+
 
         //Fill the bitmap with black color
         for (int y = 0; y < HEIGHT; y++)
             for (int x = 0; x < WIDTH; x++)
                 SetPixel(memDC, x, y, RGB(0, 0, 0));// this means BLACK!
 
-        ln.Draw(memDC);
+        ln1.Draw(memDC); ln2.Draw(memDC); ln3.Draw(memDC);
     
         BitBlt(hdc, 50, 50, WIDTH, HEIGHT, memDC, 0, 0, SRCCOPY);
         DeleteDC(memDC);

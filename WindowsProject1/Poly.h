@@ -11,6 +11,7 @@ class Poly {
 
 
   public:
+    Poly(std::vector<Line> _Shape);
     void Fill();
 
 };
