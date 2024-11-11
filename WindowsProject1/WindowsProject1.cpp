@@ -175,6 +175,10 @@ PAINTSTRUCT ps;
                 SetPixel(memDC, x, y, RGB(0, 0, 0));// this means BLACK!
 
         ln1.Draw(memDC); ln2.Draw(memDC); ln3.Draw(memDC);
+
+        COLORREF fillColor = RGB(255, 0, 0);
+
+        ply.Fill(hdc, fillColor);
     
         BitBlt(hdc, 50, 50, WIDTH, HEIGHT, memDC, 0, 0, SRCCOPY);
         DeleteDC(memDC);

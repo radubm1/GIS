@@ -12,7 +12,7 @@ class Poly {
 
   public:
     Poly(std::vector<Line> _Shape);
-    void Fill();
+    void Fill(HDC hdc, COLORREF color);
 
 };
 #endif

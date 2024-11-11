@@ -11,4 +11,11 @@ void Line::Draw(HDC memDC) {
             if (y == x * (p2.getY() - p1.getY()) / (p2.getX() - p1.getX()) + p1.getY() - ((p2.getY() - p1.getY()) / (p2.getX() - p1.getX())) * p1.getX())
                 SetPixel(memDC, x, y, RGB(255, 255, 255));// this means WHITE!
 }
+Point Line::getP1() {
+    return p1;
+}
+
+Point Line::getP2() {
+    return p2;
+}
 

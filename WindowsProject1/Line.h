@@ -11,6 +11,8 @@ class Line {
   public:
       Line(Point _p1, Point _p2);
       void Draw(HDC memDC);
+      Point getP1();
+      Point getP2();
 
 };
 #endif
