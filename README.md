@@ -2,7 +2,7 @@
 
 ![UML](3.png)
 
-### AUTHOR: INFO 03
+### AUTHORS: radubm1, ionnarcis.dorobat
 ### Version  1.0
 
 
